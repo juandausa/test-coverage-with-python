@@ -59,6 +59,19 @@ class PokemonAPITest(unittest.TestCase):
         assert len(responses.calls) == 1
         assert responses.calls[0].request.url == pokemon_url
         assert responses.calls[0].response.text == '{"error": "Pokemon not found"}'
+    
+    @responses.activate
+    def test_get_pokemon_info_not_available(self):
+        pokemon_url = 'https://pokeapi.co/api/v2/pokemon/123'
+        responses.add(responses.GET, pokemon_url, 
+                    json={
+                        'error': 'Service unavailable'
+                    },
+                    status=500)
+        
+        pokemon_info = self.api.get_pokemon_info(123)
 
-#   @responses.activate
-#   def test_get_pokemon_info_not_available(self):
+        self.assertIsNone(pokemon_info)
+        assert len(responses.calls) == 1
+        assert responses.calls[0].request.url == pokemon_url
+        assert responses.calls[0].response.text == '{"error": "Service unavailable"}'
