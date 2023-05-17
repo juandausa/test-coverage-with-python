@@ -45,7 +45,7 @@ class PokemonAPITest(unittest.TestCase):
         assert responses.calls[0].request.url == pokemon_url
 
     @responses.activate
-    def test_get_pokemon_info_invalid(self):
+    def test_get_pokemon_info_not_found(self):
         pokemon_url = 'https://pokeapi.co/api/v2/pokemon/1000'
         responses.add(responses.GET, pokemon_url, 
                     json={
@@ -59,3 +59,6 @@ class PokemonAPITest(unittest.TestCase):
         assert len(responses.calls) == 1
         assert responses.calls[0].request.url == pokemon_url
         assert responses.calls[0].response.text == '{"error": "Pokemon not found"}'
+
+#   @responses.activate
+#   def test_get_pokemon_info_not_available(self):
