@@ -13,5 +13,5 @@ class PokemonAPI:
             pokemon_number = pokemon_data['id']
             pokemon_types = [type_data['type']['name'] for type_data in pokemon_data['types']]
             return pokemon_number, pokemon_types
-        else:
+        if response.status_code == 404 or response.status_code == 500:
             return None
