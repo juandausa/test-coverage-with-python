@@ -50,10 +50,6 @@ def test_pow_positive_base_and_power():
     assert Calculator().pow(2, 3) == 8.0
 
 
-def test_pow_positive_base_and_power():
-    assert Calculator().pow(2, 3) == 8.0
-
-
 # def test_pow_positive_base_and_negative_power():
 # assert Calculator().pow(4, -1) == 2
 
