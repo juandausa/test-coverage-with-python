@@ -42,6 +42,12 @@ def test_multiply():
     assert Calculator().multiply(-4, 2.0) == -8.0
 
 
+# def test_pow():
+#    assert Calculator().pow(1, 0) == 1.0
+#    assert Calculator().pow(2, 3) == 8.0
+#    assert Calculator().pow(4, -1) == 2
+
+
 def test_pow_power_zero():
     assert Calculator().pow(1, 0) == 1.0
 
