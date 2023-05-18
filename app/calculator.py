@@ -17,7 +17,7 @@ class Calculator:
 
         if y == 0:
             return result
-        
+
         for i in range(y):
             result = self.multiply(result, x)
 
@@ -25,5 +25,5 @@ class Calculator:
 
     def divide(self, x, y):
         if y == 0:
-            return 'Cannot divide by 0'
+            return "Cannot divide by 0"
         return x * 1.0 / y

@@ -10,3 +10,4 @@ pytest-cov==4.0.0
 tomli==2.0.1
 requests==2.26.0
 responses==0.14.0
+black==23.3.0
