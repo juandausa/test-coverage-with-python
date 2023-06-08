@@ -21,8 +21,8 @@ class PokemonAPITest(unittest.TestCase):
         pokemon_info = self.api.get_pokemon_info(25)
 
         self.assertEqual(pokemon_info, (25, ['electric']))
-        assert len(responses.calls) == 1
-        assert responses.calls[0].request.url == pokemon_url
+        self.assertEqual(len(responses.calls), 1)
+        self.assertEqual(responses.calls[0].request.url, pokemon_url)
 
     def test_get_pokemon_info_not_found(self):
         pokemon_url = 'https://pokeapi.co/api/v2/pokemon/2000'
